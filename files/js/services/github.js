@@ -15,17 +15,30 @@
         };
 
         var getRepos = function(repos_url){
-            $log.info(repos_url);
             return $http.get(repos_url)
                 .then(function(response){
-                    $log.info(response.data);
+                    return response.data;
+                });
+        };
+
+        var getContributors = function(username, reponame){
+            var url = "https://api.github.com/repos/" + username + "/"  + reponame + "/contributors";
+            return genericHttpGet(url);
+        };
+
+        var genericHttpGet = function(url)
+        {
+            $log.info("http get to : " + url);
+            return $http.get(url)
+                .then(function(response){
                     return response.data;
                 });
         };
 
         return {
             getUser : getUser,
-            getRepos : getRepos
+            getRepositories : getRepos,
+            getContributors : getContributors
         };
     };
 

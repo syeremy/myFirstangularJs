@@ -11,9 +11,7 @@
     var UserController = function($scope, github, $log, $routeParams) {
         var onUserComplete = function(data) {
             $scope.user = data;
-            $log.info("getting repos from : " + $scope.user.repos_url);
-            var promise = github.getRepos($scope.user.repos_url);
-            promise.then(onRepo, onError);
+            var promise = github.getRepositories($scope.user.repos_url).then(onRepo, onError);
         };
 
 

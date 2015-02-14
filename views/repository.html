@@ -1,0 +1,18 @@
+
+{{error}}
+<h1>Contributors of {{reponame}}</h1>
+<table>
+    <thead>
+    <tr>
+        <td>Pic</td>
+        <td>Name</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="contri in contributors">
+        <td><img ng-src="{{contri.avatar_url}}" width="40" height="40" title="{{user.login}}" /></td>
+        <td><a href="{{contri.html_url}}" target="_blank" >{{contri.login}}</a></td>
+    </tbody>
+</table>
+<br/>
+<a href="#/user/{{username}}">Back to {{username}} Page</a>
