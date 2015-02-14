@@ -20,6 +20,10 @@
                 templateUrl: "views/repository.html",
                 controller: "RepositoryController"
             })
+            .when("/repo2/:username/:reponame", {
+                templateUrl: "views/repository2.html",
+                controller: "RepositoryController"
+            })
             .otherwise({redirectTo:"/main"});
     });
 })();

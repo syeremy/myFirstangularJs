@@ -26,6 +26,22 @@
             return genericHttpGet(url);
         };
 
+        var getRepoDetails = function(username, reponame) {
+            var repo;
+            var url = "https://api.github.com/repos/" + username + "/"  + reponame;
+
+            //chained promises.
+            return $http.get(url)
+                    .then(function(response){
+                        repo = response.data;
+                        return $http.get(url + "/contributors");
+                    })
+                    .then(function(response){
+                       repo.contributors = response.data;
+                        return repo;
+                    });
+        };
+
         var genericHttpGet = function(url)
         {
             $log.info("http get to : " + url);
@@ -38,6 +54,7 @@
         return {
             getUser : getUser,
             getRepositories : getRepos,
+            getRepoDetails : getRepoDetails,
             getContributors : getContributors
         };
     };

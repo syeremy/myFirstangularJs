@@ -1,0 +1,25 @@
+
+{{error}}
+
+<h2>{{repo.name}}</h2>
+
+<div>
+    Issues : {{repo.open_issues_count}}
+</div>
+
+<h1>Contributors of {{reponame}}</h1>
+<table>
+    <thead>
+    <tr>
+        <td>Pic</td>
+        <td>Name</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="contri in repo.contributors">
+        <td><img ng-src="{{contri.avatar_url}}" width="40" height="40" title="{{user.login}}" /></td>
+        <td><a href="{{contri.html_url}}" target="_blank" >{{contri.login}}</a></td>
+    </tbody>
+</table>
+<br/>
+<a href="#/user/{{username}}">Back to {{repo.name}} Page</a>
