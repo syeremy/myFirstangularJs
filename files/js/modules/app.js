@@ -12,6 +12,10 @@
                 templateUrl : "views/main.html",
                 controller : "MainController"
             })
+            .when("/user/:username", {
+                templateUrl: "views/user.html",
+                controller: "UserController"
+            })
             .otherwise({redirectTo:"/main"});
     });
 })();

@@ -1,8 +1,15 @@
 <div id="userDetails">
+
+    <!--
     <div>
         <img ng-src="{{user.avatar_url}}" title="{{user.login}}" />
     </div>
+    -->
 
+    <h2>{{user.name}}</h2>
+    {{error}}
+    <!--<img src="http://wwww.gravatar.com/avatar/{{user.gravatar_id}}" alt="{{username}}"/>-->
+    <img ng-src="{{user.avatar_url}}" width="40" height="40" title="{{user.login}}" />
     <div>
         Order :
 
@@ -33,3 +40,4 @@
     </tr>
     </tbody>
 </table>
+<a href="#/main">Back to main</a>

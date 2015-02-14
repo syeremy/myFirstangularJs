@@ -28,11 +28,14 @@
                 $interval.cancel(countDownInterval);
                 $scope.countdown = 0;
             }
+
+            //Change the client fragment to #/user/someuser
+            $location.path("/user/" + username);
         };
 
 
         $scope.username = "angular";
-        $scope.countdown = 5;
+        $scope.countdown = 15;
         startCountDown();
     };
 
